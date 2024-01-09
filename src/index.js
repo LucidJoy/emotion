@@ -1,17 +1,53 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState } from "react";
+import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
+import { Canvas } from "@react-three/fiber";
+import App from "./App";
+import music from "./assets/music.png";
+import logo from "./logo.png";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById("root"));
+
+function Main() {
+  const [audioConsent, setAudioConsent] = useState(false);
+
+  const handleConsentClick = () => {
+    setAudioConsent(true);
+  };
+  return (
+    <>
+      <header>
+        <img src={logo} className='App-logo' alt='logo' />
+      </header>
+
+      <Canvas>
+        <App audioConsent={audioConsent} />
+      </Canvas>
+
+      <div
+        className='btn--sound'
+        style={{
+          position: "fixed",
+          left: 5,
+          bottom: 10,
+          zIndex: 1,
+        }}
+      >
+        <img
+          src={music}
+          alt=''
+          width={50}
+          height={50}
+          style={{ cursor: "pointer" }}
+          onClick={handleConsentClick}
+        />
+      </div>
+    </>
+  );
+}
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Main />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
