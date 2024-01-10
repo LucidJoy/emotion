@@ -19,6 +19,45 @@ dd {
   margin: 0;
 }
 
+::-webkit-scrollbar {
+  width: 4px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.525);
+  border-radius: 20px;
+}
+
+/* Your CSS file or style section */
+
+.button-styling {
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: dashed;
+  border-color: white;
+  background-color: transparent;
+  padding: 12px 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Italiana";
+  color: white;
+  transition: all 300ms;
+}
+
+.button-styling:hover {
+  transform: translate(-4px, -4px);
+  border-radius: md;
+  box-shadow: 4px 4px 0px white;
+  cursor: pointer;
+}
+
+.button-styling:active {
+  transform: translate(0px, 0px);
+  border-radius: 2xl;
+  box-shadow: none;
+}
+
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role="list"],
 ol[role="list"] {

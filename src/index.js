@@ -6,6 +6,8 @@ import App from "./App";
 import music from "./assets/music.png";
 import logo from "./logo.png";
 
+import "./index.css";
+
 const root = createRoot(document.getElementById("root"));
 
 function Main() {
@@ -28,17 +30,17 @@ function Main() {
         className='btn--sound'
         style={{
           position: "fixed",
-          left: 5,
-          bottom: 10,
+          left: 10,
+          bottom: 0,
           zIndex: 1,
         }}
       >
         <img
           src={music}
           alt=''
-          width={50}
-          height={50}
-          style={{ cursor: "pointer" }}
+          width={40}
+          height={40}
+          className='hoverable'
           onClick={handleConsentClick}
         />
       </div>

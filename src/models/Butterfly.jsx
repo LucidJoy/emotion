@@ -17,10 +17,10 @@ const Butterfly = (props) => {
   const { nodes, materials, animations } = useGLTF(butterflyScene);
   const { actions } = useAnimations(animations, group);
 
-  // useEffect(() => {
-  //   actions.Object_0.timeScale = 0.15;
-  //   actions.Object_0.play();
-  // }, []);
+  useEffect(() => {
+    actions.Object_0.timeScale = 0.15;
+    actions.Object_0.play();
+  }, []);
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -49,6 +49,7 @@ const Butterfly = (props) => {
                     <group name='Object_9' position={[29.774, 0.869, 0]}>
                       <group name='MorphMainGroup'>
                         <mesh
+                          // visible={}
                           name='Line001'
                           castShadow
                           receiveShadow
@@ -63,7 +64,7 @@ const Butterfly = (props) => {
                         />
                       </group>
                       <group name='MorphMainGroup_1'>
-                        <mesh
+                        {/* <mesh
                           name='Line001_1'
                           castShadow
                           receiveShadow
@@ -75,12 +76,12 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line001_1.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                     </group>
                     <group name='Object_14' position={[29.774, 0.869, 0]}>
                       <group name='MorphMainGroup_2'>
-                        <mesh
+                        {/* <mesh
                           name='Line001_2'
                           castShadow
                           receiveShadow
@@ -92,10 +93,10 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line001_2.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                       <group name='MorphMainGroup_3'>
-                        <mesh
+                        {/* <mesh
                           name='Line001_3'
                           castShadow
                           receiveShadow
@@ -107,7 +108,7 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line001_3.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                     </group>
                   </group>
@@ -129,7 +130,7 @@ const Butterfly = (props) => {
                         />
                       </group>
                       <group name='MorphMainGroup_5'>
-                        <mesh
+                        {/* <mesh
                           name='Line004_1'
                           castShadow
                           receiveShadow
@@ -141,12 +142,12 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line004_1.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                     </group>
                     <group name='Object_25' position={[-31.618, -4.184, 0]}>
                       <group name='MorphMainGroup_6'>
-                        <mesh
+                        {/* <mesh
                           name='Line004_2'
                           castShadow
                           receiveShadow
@@ -158,10 +159,10 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line004_2.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                       <group name='MorphMainGroup_7'>
-                        <mesh
+                        {/* <mesh
                           name='Line004_3'
                           castShadow
                           receiveShadow
@@ -173,7 +174,7 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line004_3.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                     </group>
                   </group>
@@ -294,7 +295,7 @@ const Butterfly = (props) => {
                     position={[-4.749, 24.826, 4.726]}
                     rotation={[-1.309, -0.532, -3.006]}
                   >
-                    <group name='TimeframeMainGroup_9'>
+                    {/* <group name='TimeframeMainGroup_9'>
                       <group name='Object_60'>
                         <mesh
                           name='Sphere001_28_0_2'
@@ -304,16 +305,16 @@ const Butterfly = (props) => {
                           material={materials.Sphere001}
                         />
                       </group>
-                    </group>
+                    </group> */}
                     <group name='TimeframeMainGroup_10'>
                       <group name='Object_63'>
-                        <mesh
+                        {/* <mesh
                           name='Sphere001_28_0_3'
                           castShadow
                           receiveShadow
                           geometry={nodes.Sphere001_28_0_3.geometry}
                           material={materials.Sphere001}
-                        />
+                        /> */}
                       </group>
                     </group>
                   </group>
@@ -324,24 +325,24 @@ const Butterfly = (props) => {
                   >
                     <group name='TimeframeMainGroup_11'>
                       <group name='Object_67'>
-                        <mesh
+                        {/* <mesh
                           name='Cylinder002_23_0_2'
                           castShadow
                           receiveShadow
                           geometry={nodes.Cylinder002_23_0_2.geometry}
                           material={materials.Cylinder002}
-                        />
+                        /> */}
                       </group>
                     </group>
                     <group name='TimeframeMainGroup_12'>
                       <group name='Object_70'>
-                        <mesh
+                        {/* <mesh
                           name='Cylinder002_23_0_3'
                           castShadow
                           receiveShadow
                           geometry={nodes.Cylinder002_23_0_3.geometry}
                           material={materials.Cylinder002}
-                        />
+                        /> */}
                       </group>
                     </group>
                   </group>
@@ -352,24 +353,24 @@ const Butterfly = (props) => {
                   >
                     <group name='TimeframeMainGroup_13'>
                       <group name='Object_74'>
-                        <mesh
+                        {/* <mesh
                           name='Sphere002_21_0_2'
                           castShadow
                           receiveShadow
                           geometry={nodes.Sphere002_21_0_2.geometry}
                           material={materials.Sphere002}
-                        />
+                        /> */}
                       </group>
                     </group>
                     <group name='TimeframeMainGroup_14'>
                       <group name='Object_77'>
-                        <mesh
+                        {/* <mesh
                           name='Sphere002_21_0_3'
                           castShadow
                           receiveShadow
                           geometry={nodes.Sphere002_21_0_3.geometry}
                           material={materials.Sphere002}
-                        />
+                        /> */}
                       </group>
                     </group>
                   </group>
@@ -380,31 +381,31 @@ const Butterfly = (props) => {
                   >
                     <group name='TimeframeMainGroup_15'>
                       <group name='Object_81'>
-                        <mesh
+                        {/* <mesh
                           name='Cylinder001_16_0_2'
                           castShadow
                           receiveShadow
                           geometry={nodes.Cylinder001_16_0_2.geometry}
                           material={materials.Cylinder001}
-                        />
+                        /> */}
                       </group>
                     </group>
                     <group name='TimeframeMainGroup_16'>
                       <group name='Object_84'>
-                        <mesh
+                        {/* <mesh
                           name='Cylinder001_16_0_3'
                           castShadow
                           receiveShadow
                           geometry={nodes.Cylinder001_16_0_3.geometry}
                           material={materials.Cylinder001}
-                        />
+                        /> */}
                       </group>
                     </group>
                   </group>
                   <group name='Object_86' position={[0.128, -1.891, 1.185]}>
                     <group name='Object_87' position={[-31.618, -4.184, 0]}>
                       <group name='MorphMainGroup_8'>
-                        <mesh
+                        {/* <mesh
                           name='Line004_4'
                           castShadow
                           receiveShadow
@@ -416,10 +417,10 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line004_4.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                       <group name='MorphMainGroup_9'>
-                        <mesh
+                        {/* <mesh
                           name='Line004_5'
                           castShadow
                           receiveShadow
@@ -431,12 +432,12 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line004_5.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                     </group>
                     <group name='Object_92' position={[-31.618, -4.184, 0]}>
                       <group name='MorphMainGroup_10'>
-                        <mesh
+                        {/* <mesh
                           name='Line004_6'
                           castShadow
                           receiveShadow
@@ -448,10 +449,10 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line004_6.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                       <group name='MorphMainGroup_11'>
-                        <mesh
+                        {/* <mesh
                           name='Line004_7'
                           castShadow
                           receiveShadow
@@ -463,14 +464,14 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line004_7.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                     </group>
                   </group>
                   <group name='Object_97' position={[0.144, -1.17, 1.185]}>
                     <group name='Object_98' position={[29.774, 0.869, 0]}>
                       <group name='MorphMainGroup_12'>
-                        <mesh
+                        {/* <mesh
                           name='Line001_4'
                           castShadow
                           receiveShadow
@@ -482,10 +483,10 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line001_4.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                       <group name='MorphMainGroup_13'>
-                        <mesh
+                        {/* <mesh
                           name='Line001_5'
                           castShadow
                           receiveShadow
@@ -497,12 +498,12 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line001_5.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                     </group>
                     <group name='Object_103' position={[29.774, 0.869, 0]}>
                       <group name='MorphMainGroup_14'>
-                        <mesh
+                        {/* <mesh
                           name='Line001_6'
                           castShadow
                           receiveShadow
@@ -514,10 +515,10 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line001_6.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                       <group name='MorphMainGroup_15'>
-                        <mesh
+                        {/* <mesh
                           name='Line001_7'
                           castShadow
                           receiveShadow
@@ -529,19 +530,19 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line001_7.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                     </group>
                   </group>
                   <group name='TimeframeMainGroup_17'>
                     <group name='Object_109'>
-                      <mesh
+                      {/* <mesh
                         name='Box001_2_0_1'
                         castShadow
                         receiveShadow
                         geometry={nodes.Box001_2_0_1.geometry}
                         material={materials.Box001}
-                      />
+                      /> */}
                     </group>
                   </group>
                 </group>
@@ -552,19 +553,19 @@ const Butterfly = (props) => {
                 >
                   <group name='TimeframeMainGroup_18'>
                     <group name='Object_113'>
-                      <mesh
+                      {/* <mesh
                         name='Box001_2_0_2'
                         castShadow
                         receiveShadow
                         geometry={nodes.Box001_2_0_2.geometry}
                         material={materials.Box001}
-                      />
+                      /> */}
                     </group>
                   </group>
                   <group name='Object_115' position={[0.144, -1.17, 1.185]}>
                     <group name='Object_116' position={[29.774, 0.869, 0]}>
                       <group name='MorphMainGroup_16'>
-                        <mesh
+                        {/* <mesh
                           name='Line001_8'
                           castShadow
                           receiveShadow
@@ -576,10 +577,10 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line001_8.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                       <group name='MorphMainGroup_17'>
-                        <mesh
+                        {/* <mesh
                           name='Line001_9'
                           castShadow
                           receiveShadow
@@ -591,12 +592,12 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line001_9.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                     </group>
                     <group name='Object_121' position={[29.774, 0.869, 0]}>
                       <group name='MorphMainGroup_18'>
-                        <mesh
+                        {/* <mesh
                           name='Line001_10'
                           castShadow
                           receiveShadow
@@ -608,10 +609,10 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line001_10.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                       <group name='MorphMainGroup_19'>
-                        <mesh
+                        {/* <mesh
                           name='Line001_11'
                           castShadow
                           receiveShadow
@@ -623,11 +624,11 @@ const Butterfly = (props) => {
                           morphTargetInfluences={
                             nodes.Line001_11.morphTargetInfluences
                           }
-                        />
+                        /> */}
                       </group>
                     </group>
                   </group>
-                  <group name='Object_126' position={[0.128, -1.891, 1.185]}>
+                  {/* <group name='Object_126' position={[0.128, -1.891, 1.185]}>
                     <group name='Object_127' position={[-31.618, -4.184, 0]}>
                       <group name='MorphMainGroup_20'>
                         <mesh
@@ -1059,7 +1060,7 @@ const Butterfly = (props) => {
                         material={materials.Box001}
                       />
                     </group>
-                  </group>
+                  </group> */}
                 </group>
               </group>
             </group>

@@ -5,7 +5,6 @@ import {
   Scroll,
   ScrollControls,
   Sparkles,
-  Html,
 } from "@react-three/drei";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -17,9 +16,9 @@ import sound_3 from "./sounds/ambient-happy.mp3";
 import { useFrame } from "@react-three/fiber";
 import React, { useState } from "react";
 import { useEffect, useRef } from "react";
+import Button from "react-bootstrap/Button";
 
 import Butterfly from "./models/Butterfly";
-import Insect from "./models/Insect";
 import "./App.css";
 import {
   Bloom,
@@ -65,6 +64,8 @@ function App({ audioConsent }) {
         <Vignette eskil={false} offset={0.1} darkness={1.5} />
       </EffectComposer>
 
+      {/* range */}
+
       <ScrollControls pages={6} damping={0.25}>
         <Scroll>
           {/* top */}
@@ -74,51 +75,41 @@ function App({ audioConsent }) {
             floatIntensity={0.2}
             floatingRange={[1, 1]}
           >
-            <Insect
+            <Butterfly
               rotation-x={Math.PI * 0.05}
-              rotation-y={Math.PI}
-              scale={1}
-              position={[0, -2.5, 0]}
-              renderOrder={1}
-              key={1}
-            />
-            <Insect scale={1} rotation-y={Math.PI} position={[10, -3, -6]} />
-            <Insect
-              rotation-y={Math.PI}
-              scale={1}
-              position={[10, -4, -10]}
-              // renderOrder={1}
-              // key={1}
-            />
-          </Float>
-          {/* mid */}
-          {/* <Float
-            speed={1}
-            rotationIntensity={2}
-            floatIntensity={0.2}
-            floatingRange={[1, 1]}
-          >
-            <Insect
               scale={0.05}
-              rotation-y={Math.PI}
-              position={[-1, -12.5, 0]}
+              position={[0, -2.5, 0]}
             />
-            <Insect scale={0.05} position={[12, -14, -10]} />
-          </Float> */}
-          {/* middle */}
-          {/* <Float
+            <Butterfly scale={0.05} position={[-10, -3, -6]} />
+            <Butterfly scale={0.05} position={[10, -4, -10]} />
+          </Float>
+
+          {/* mid */}
+          <Float
             speed={1}
             rotationIntensity={2}
             floatIntensity={0.2}
             floatingRange={[1, 1]}
           >
-            <Insect scale={0.05} position={[-3, -19.5, 2]} />
-            <Insect scale={0.05} position={[8, -23, -10]} />
-            <Insect scale={0.05} position={[4, -24, 2]} />
-          </Float> */}
+            <Butterfly scale={0.05} position={[-1, -12.5, 0]} />
+            <Butterfly scale={0.05} position={[12, -14, -10]} />
+          </Float>
+
           {/* middle */}
+          <Float
+            speed={1}
+            rotationIntensity={2}
+            floatIntensity={0.2}
+            floatingRange={[1, 1]}
+          >
+            <Butterfly scale={0.05} position={[-3, -19.5, 2]} />
+            <Butterfly scale={0.05} position={[8, -23, -10]} />
+            <Butterfly scale={0.05} position={[4, -24, 2]} />
+          </Float>
+          {/* middle */}
+
           {/* sparkles */}
-          <Float speed={0.02}>
+          <Float speed={0.7} floatingRange={[10, 10]}>
             <Sparkles
               noise={0}
               count={500}
@@ -318,6 +309,7 @@ function App({ audioConsent }) {
                   >
                     To get your life back
                   </h3>
+                  <button className='button-styling'>Get help now</button>
                 </div>
               </Col>
             </Row>
