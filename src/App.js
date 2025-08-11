@@ -34,7 +34,7 @@ function App({ audioConsent }) {
 
   return (
     <>
-      <color attach="background" args={["#000000"]} />
+      <color attach='background' args={["#000000"]} />
 
       <ambientLight intensity={2} />
       <spotLight
@@ -46,7 +46,7 @@ function App({ audioConsent }) {
         shadow-bias={-0.001}
       />
 
-      <Environment preset="sunset" />
+      <Environment preset='sunset' />
 
       <EffectComposer>
         <Bloom
@@ -55,17 +55,10 @@ function App({ audioConsent }) {
           luminanceSmoothing={0.9}
           height={1000}
         />
-        {/* <DepthOfField
+        <DepthOfField
           focusDistance={0}
           focalLength={0.02}
           bokehScale={5}
-          height={480}
-        /> */}
-
-        <DepthOfField
-          focusDistance={0.02}
-          focalLength={0.015}
-          bokehScale={2}
           height={480}
         />
         <Vignette eskil={false} offset={0.1} darkness={1.5} />
@@ -73,7 +66,7 @@ function App({ audioConsent }) {
 
       {/* range */}
 
-      <ScrollControls pages={11} damping={0.25}>
+      <ScrollControls pages={6} damping={0.25}>
         <Scroll>
           {/* top */}
           <Float
@@ -85,10 +78,10 @@ function App({ audioConsent }) {
             <Butterfly
               rotation-x={Math.PI * 0.05}
               scale={0.05}
-              position={[0, -2.5, -3]}
+              position={[0, -2.5, 0]}
             />
-            <Butterfly scale={0.05} position={[-10, -3, -8]} />
-            <Butterfly scale={0.05} position={[10, -4, -12]} />
+            <Butterfly scale={0.05} position={[-10, -3, -6]} />
+            <Butterfly scale={0.05} position={[10, -4, -10]} />
           </Float>
 
           {/* mid */}
@@ -115,42 +108,62 @@ function App({ audioConsent }) {
           </Float>
           {/* middle */}
 
-          {/* deeper butterflies to cover later pages */}
-          <Float
-            speed={1}
-            rotationIntensity={2}
-            floatIntensity={0.2}
-            floatingRange={[1, 1]}
-          >
-            <Butterfly scale={0.05} position={[-6, -32, 2]} />
-            <Butterfly scale={0.05} position={[5, -44, -6]} />
-            <Butterfly scale={0.05} position={[-2, -56, 3]} />
-            <Butterfly scale={0.05} position={[9, -68, -8]} />
-            <Butterfly scale={0.05} position={[-4, -80, 1]} />
-            <Butterfly scale={0.05} position={[7, -92, -5]} />
+          {/* sparkles */}
+          <Float speed={0.7} floatingRange={[10, 10]}>
+            <Sparkles
+              noise={0}
+              count={500}
+              speed={0.01}
+              size={0.6}
+              color={"#FFD2BE"}
+              opacity={10}
+              scale={[20, 100, 20]}
+            />
+            <Sparkles
+              noise={0}
+              count={50}
+              speed={0.01}
+              size={10}
+              color={"#FFF"}
+              opacity={2}
+              scale={[30, 100, 10]}
+            />
           </Float>
 
-          {/* sparkles spanning full scroll */}
-          <Float speed={0.7} floatingRange={[10, 10]} position={[0, 0, -5]}>
-            <Sparkles
-              noise={0}
-              count={1500}
-              speed={0.01}
-              size={4}
-              color={"#FFD2BE"}
-              opacity={2} // <= 1
-              scale={[40, 1200, 6]} // tall Y, shallow Z
-            />
-            <Sparkles
-              noise={0}
-              count={150}
-              speed={0.01}
-              size={15}
-              color={"#FFF"}
-              opacity={1} // <= 1
-              scale={[50, 1200, 6]} // shallow Z
-            />
-          </Float>
+          {/* sound */}
+          <group position={[0, 0, 0]}>
+            {audioConsent && (
+              <PositionalAudio
+                ref={audio1Ref}
+                autoplay
+                loop
+                url={sound_1}
+                distance={1.2}
+              />
+            )}
+          </group>
+          <group position={[0, -20, 0]}>
+            {audioConsent && (
+              <PositionalAudio
+                ref={audio2Ref}
+                autoplay
+                loop
+                url={sound_2}
+                distance={3}
+              />
+            )}
+          </group>
+          <group position={[0, -40, 0]}>
+            {audioConsent && (
+              <PositionalAudio
+                ref={audio3Ref}
+                autoplay
+                loop
+                url={sound_3}
+                distance={1.2}
+              />
+            )}
+          </group>
         </Scroll>
 
         <Scroll html style={{ width: "100%" }}>
@@ -169,26 +182,15 @@ function App({ audioConsent }) {
             >
               <Col xs={6}>
                 <div>
-                  <h3
-                    style={{
-                      marginBottom: "0px",
-                      paddingRight: "20vw",
-                      paddingLeft: "20vw",
-                      fontSize: "26px",
-                    }}
-                  >
-                    I’m your Joy, who cares deeply about you. True friendship
-                    means being there in your highest and lowest moments, and I
-                    want to prove I can be that person for you again. Fights and
-                    misunderstandings happen, but resolving them and moving
-                    forward shows real friendship
-                  </h3>
+                  <h1 style={{ marginBottom: "0px" }}>
+                    Life can be a struggle
+                  </h1>
                 </div>
               </Col>
             </Row>
 
             <Row
-              className="text-center align-items-center justify-content-center"
+              className='text-center align-items-center justify-content-center'
               style={{
                 position: "absolute",
                 width: "100vw",
@@ -203,23 +205,15 @@ function App({ audioConsent }) {
             >
               <Col xs={6}>
                 <div>
-                  <h3
-                    style={{
-                      marginBottom: "0px",
-                      paddingRight: "20vw",
-                      paddingLeft: "20vw",
-                      fontSize: "26px",
-                    }}
-                  >
-                    I will never hide conversations, feelings, or frustrations.
-                    I will always be open with you so you can trust me again
-                  </h3>
+                  <h1 style={{ marginBottom: "0px" }}>
+                    Sometimes you can feel
+                  </h1>
                 </div>
               </Col>
             </Row>
 
             <Row
-              className="text-center align-items-center justify-content-center"
+              className='text-center align-items-center justify-content-center'
               style={{
                 position: "absolute",
                 width: "100vw",
@@ -234,17 +228,9 @@ function App({ audioConsent }) {
             >
               <Col xs={6}>
                 <div>
-                  <h3
-                    style={{
-                      marginBottom: "0px",
-                      paddingRight: "20vw",
-                      paddingLeft: "20vw",
-                      fontSize: "26px",
-                    }}
-                  >
-                    If I’m upset, I’ll tell you directly and respectfully. I
-                    won't ever let anyone come between our friendship ever again
-                  </h3>
+                  <h1 style={{ marginBottom: "0px" }}>Lost</h1>
+                  <h1 style={{ marginBottom: "0px" }}>Overwhelmed</h1>
+                  <h1 style={{ marginBottom: "0px" }}>Empty inside</h1>
                 </div>
               </Col>
             </Row>
@@ -264,18 +250,10 @@ function App({ audioConsent }) {
             >
               <Col xs={6}>
                 <div>
-                  <h3
-                    style={{
-                      marginBottom: "0px",
-                      paddingRight: "20vw",
-                      paddingLeft: "20vw",
-                      fontSize: "26px",
-                    }}
-                  >
-                    I will check on you regularly for the rest of my life and
-                    pray to Allah for your safety, happiness, and the well-being
-                    of your family
-                  </h3>
+                  <h1 style={{ marginBottom: "0px" }}>
+                    Drifting through life <br />
+                    With no help or guidance
+                  </h1>
                 </div>
               </Col>
             </Row>
@@ -295,18 +273,10 @@ function App({ audioConsent }) {
             >
               <Col xs={6}>
                 <div>
-                  <h3
-                    style={{
-                      marginBottom: "0px",
-                      paddingRight: "20vw",
-                      paddingLeft: "20vw",
-                      fontSize: "26px",
-                    }}
-                  >
-                    I will listen to you fully, without rushing to defend
-                    myself, and always acknowledge your feelings because I love
-                    you
-                  </h3>
+                  <h1 style={{ marginBottom: "0px" }}>
+                    But there is hope...
+                    <br /> and people who can help
+                  </h1>
                 </div>
               </Col>
             </Row>
@@ -326,182 +296,20 @@ function App({ audioConsent }) {
             >
               <Col xs={6}>
                 <div>
-                  <h3
-                    style={{
-                      marginBottom: "0px",
-                      paddingRight: "20vw",
-                      paddingLeft: "20vw",
-                      fontSize: "26px",
-                    }}
-                  >
-                    I know trust won’t come back overnight and I don't expect
-                    you to trust me right away because of the things I did,
-                    knowingly or unknowingly. I’ll earn it through actions until
-                    it returns naturally
-                  </h3>
-                </div>
-              </Col>
-            </Row>
-
-            <Row
-              className="text-center align-items-center justify-content-center"
-              style={{
-                position: "absolute",
-                width: "100vw",
-                height: "100vh",
-                display: "flex",
-                flexDirection: "column",
-                textAlign: "center",
-                alignItems: "center",
-                justifyContent: "center",
-                top: "600vh",
-              }}
-            >
-              <Col xs={6}>
-                <div>
-                  <h3
-                    style={{
-                      marginBottom: "0px",
-                      paddingRight: "20vw",
-                      paddingLeft: "20vw",
-                      fontSize: "26px",
-                    }}
-                  >
-                    If you need space, I will give it while reminding you that
-                    I’m here for you anytime and I love you.
-                  </h3>
-                </div>
-              </Col>
-            </Row>
-
-            <Row
-              className="text-center align-items-center justify-content-center"
-              style={{
-                position: "absolute",
-                width: "100vw",
-                height: "100vh",
-                display: "flex",
-                flexDirection: "column",
-                textAlign: "center",
-                alignItems: "center",
-                justifyContent: "center",
-                top: "700vh",
-              }}
-            >
-              <Col xs={6}>
-                <div>
-                  <h3
-                    style={{
-                      marginBottom: "0px",
-                      paddingRight: "20vw",
-                      paddingLeft: "20vw",
-                      fontSize: "26px",
-                    }}
-                  >
-                    I will tell you about my day-to-day life, even the small
-                    things, to keep our sweet friendship alive for generations
-                  </h3>
-                </div>
-              </Col>
-            </Row>
-
-            <Row
-              className="text-center align-items-center justify-content-center"
-              style={{
-                position: "absolute",
-                width: "100vw",
-                height: "100vh",
-                display: "flex",
-                flexDirection: "column",
-                textAlign: "center",
-                alignItems: "center",
-                justifyContent: "center",
-                top: "800vh",
-              }}
-            >
-              <Col xs={6}>
-                <div>
-                  <h3
-                    style={{
-                      marginBottom: "0px",
-                      paddingRight: "20vw",
-                      paddingLeft: "20vw",
-                      fontSize: "26px",
-                    }}
-                  >
-                    I want to be there with you when you are low. I can’t
-                    promise to fix your feelings but I will sit with you for
-                    hours, I will listen to everything and I just want you to
-                    know that you are not alone
-                  </h3>
-                </div>
-              </Col>
-            </Row>
-
-            <Row
-              className="text-center align-items-center justify-content-center"
-              style={{
-                position: "absolute",
-                width: "100vw",
-                height: "100vh",
-                display: "flex",
-                flexDirection: "column",
-                textAlign: "center",
-                alignItems: "center",
-                justifyContent: "center",
-                top: "900vh",
-              }}
-            >
-              <Col xs={6}>
-                <div>
-                  <h3
-                    style={{
-                      marginBottom: "0px",
-                      paddingRight: "20vw",
-                      paddingLeft: "20vw",
-                      fontSize: "26px",
-                    }}
-                  >
-                    Since we are starting school together, I want to be there
-                    with you to support you, to help you, to cheer you, to
-                    motivate you, to see you shaping your future, to see you
-                    succeed in life and be happy
-                  </h3>
-                </div>
-              </Col>
-            </Row>
-
-            <Row
-              className="text-center align-items-center justify-content-center"
-              style={{
-                position: "absolute",
-                width: "100vw",
-                height: "100vh",
-                display: "flex",
-                flexDirection: "column",
-                textAlign: "center",
-                alignItems: "center",
-                justifyContent: "center",
-                top: "1000vh",
-              }}
-            >
-              <Col xs={6}>
-                <div>
-                  <h1 style={{ marginBottom: "0px" }}>Beana</h1>
+                  <h1 style={{ marginBottom: "0px" }}>
+                    It's time to get
+                    <br /> the support you need
+                  </h1>
                   <h3
                     style={{
                       marginBottom: "30px",
                       marginTop: "-20px",
-                      paddingRight: "20vw",
-                      paddingLeft: "20vw",
-                      fontSize: "26px",
+                      fontSize: "28px",
                     }}
                   >
-                    You are one of the most important people I’ve ever met. I’m
-                    sorry for hurting you, and I don’t want to lose you. These
-                    aren’t just words, they’re promises I’m ready to prove, no
-                    matter how long it takes
+                    To get your life back
                   </h3>
+                  <button className='button-styling'>Get help now</button>
                 </div>
               </Col>
             </Row>
