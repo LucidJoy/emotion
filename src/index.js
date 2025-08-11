@@ -16,10 +16,11 @@ function Main() {
   const handleConsentClick = () => {
     setAudioConsent(true);
   };
+
   return (
     <>
       <header>
-        <img src={logo} className='App-logo' alt='logo' />
+        <img src={logo} className="App-logo" alt="logo" />
       </header>
 
       <Canvas>
@@ -27,7 +28,7 @@ function Main() {
       </Canvas>
 
       <div
-        className='btn--sound'
+        className="btn--sound"
         style={{
           position: "fixed",
           left: 10,
@@ -35,14 +36,15 @@ function Main() {
           zIndex: 1,
         }}
       >
-        <img
+        {/* <img
           src={music}
-          alt=''
+          alt=""
           width={40}
           height={40}
-          className='hoverable'
+          className="hoverable"
           onClick={handleConsentClick}
-        />
+        /> */}
+        Beana (edit this with a better font)
       </div>
     </>
   );
